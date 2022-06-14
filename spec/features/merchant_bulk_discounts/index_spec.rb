@@ -9,7 +9,6 @@ RSpec.describe "Bulk Discounts Index Page", type: :feature do
      bulk_discount2 = merchant[0].bulk_discounts.create!(threshold: 15, discount_percentage: 15)
      bulk_discount3 = merchant[1].bulk_discounts.create!(threshold: 15, discount_percentage: 30)
 
-     # visit "/merchants/#{merchant[0].id}/dashboard"
      visit merchant_bulk_discounts_path(merchant[0])
 
      within '#rightSide' do

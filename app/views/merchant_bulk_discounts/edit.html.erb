@@ -1,11 +1,6 @@
-<% if flash.key? :alert %>
-<p><%= flash[:alert] %></p>
-<% end %>
-<%= form_with url: merchant_bulk_discount_path(@merchant, @discount), method: :patch, local: true do |form| %>
-  <p><%= form.label :threshold, "Threshold" %></p>
-  <%= form.number_field :threshold, min: 1, value: @discount.threshold %>
-  <p><%= form.label :discount_percentage, "Discount Percentage" %></p>
-  <%= form.number_field :discount_percentage, max: 100, min: 1, value: @discount.discount_percentage %>
-
-<p> <%= form.submit "Submit New Discount" %></p>
-<% end %>
+<%= render partial: 'form', locals: {
+                                    path: merchant_bulk_discount_path(@merchant, @discount),
+                                    method: :patch,
+                                    value: @discount.threshold ,
+                                    value2: @discount.discount_percentage ,
+                                    button_text: "Submit Discount" } %>

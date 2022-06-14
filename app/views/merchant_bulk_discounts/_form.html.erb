@@ -1,0 +1,11 @@
+<% if flash.key? :alert %>
+<p><%= flash[:alert] %></p>
+<% end %>
+<%= form_with url: path, method: method, local: true do |form| %>
+  <p><%= form.label :threshold, "Threshold" %></p>
+  <%= form.number_field :threshold, min: 1, value: value %>
+  <p><%= form.label :discount_percentage, "Discount Percentage" %></p>
+  <%= form.number_field :discount_percentage, max: 100, min: 1, value: value2 %>
+
+<p> <%=form.submit button_text %></p>
+<% end %>
